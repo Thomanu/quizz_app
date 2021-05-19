@@ -5,7 +5,7 @@ function getRandomQuestion()
 {
     $questions = new questions();
     $questionList = $questions->getAllQuestions();
-    var_dump($questionList);
+    // var_dump($questionList);
 }
 getRandomQuestion();
 
