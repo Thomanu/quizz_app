@@ -18,3 +18,25 @@ class database
         $this->db = NULL;
     }
 }
+
+
+// Supprimer une questions //
+function delete_question($id){
+    $pdo = db_connect();
+    $sql = "DELETE FROM `questions` WHERE `id` = :id";
+
+    $req = $pdo->prepare($sql);
+
+    $req->bindValue(':id', $id, PDO::PARAM_INT);
+
+    try {
+        // exécuter la requête
+        $req->execute();
+        // renvoie le nombre d'enregistrement créé.
+        return $req->rowCount();
+        
+    }catch(PDOException $e){
+        return false;
+    }
+}
+//Fin supprimer une questions //
